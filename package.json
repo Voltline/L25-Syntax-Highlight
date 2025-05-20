@@ -2,10 +2,10 @@
   "name": "l25-syntax-highlight",
   "displayName": "L25-Syntax-Highlight",
   "description": "A syntax highlight extension for L25 Language",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "Voltline",
   "engines": {
-    "vscode": "^1.100.0"
+    "vscode": "^1.50.0"
   },
   "categories": [
     "Programming Languages"

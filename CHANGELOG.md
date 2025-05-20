@@ -4,6 +4,9 @@ All notable changes to the "l25-syntax-highlight" extension will be documented i
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [v1.1.1]
+* 修改VSCode最低支持版本
+
 ## [v1.1.0]
 * 支持了部分常用语句的代码补全
 
