@@ -21,7 +21,13 @@
       "language": "l25",
       "scopeName": "source.l25",
       "path": "./syntaxes/l25.tmLanguage.json"
-    }]
+    }],
+    "snippets": [
+        {
+            "language": "l25",
+            "path": "./snippets/l25.json"
+        }
+    ]
   },
   "icon": "images/logo.png",
   "repository": {
