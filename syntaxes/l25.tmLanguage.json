@@ -1,0 +1,175 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "L25",
+    "scopeName": "source.l25",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#keywords" },
+        { "include": "#types" },
+        { "include": "#operators" },
+        { "include": "#punctuation" },
+        { "include": "#numbers" },
+        { "include": "#strings" },
+        { "include": "#functions" },
+        { "include": "#variables" },
+        { "include": "#arrayAccess" },
+        { "include": "#identifiers" }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.l25",
+                    "match": "//.*$"
+                },
+                {
+                    "name": "comment.block.l25",
+                    "begin": "/\\*",
+                    "end": "\\*/",
+                    "patterns": [
+                        {
+                            "name": "comment.block.l25",
+                            "match": "(.|\\n)"
+                        }
+                    ]
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "match": "\\b(program|func|main|let|if|else|while|input|output|return|null)\\b",
+                    "name": "keyword.control.l25"
+                }
+            ]
+        },
+        "types": {
+            "patterns": [
+                {
+                    "match": "\\bint\\b",
+                    "name": "storage.type.l25"
+                },
+                {
+                    "name": "storage.type.array.l25",
+                    "begin": "(?<=\\b(let\\s+[a-zA-Z][a-zA-Z0-9]*|func\\s+[a-zA-Z_][a-zA-Z0-9_]*\\s*\\([a-zA-Z_][a-zA-Z0-9_]*)\\s*:\\s*)\\[",
+                    "end": "\\]",  
+                    "beginCaptures": {
+                        "0": {"name": "punctuation.bracket.square.l25"}
+                    },
+                    "endCaptures": {
+                        "0": {"name": "punctuation.bracket.square.l25"}
+                    },
+                    "patterns": [
+                        {
+                            "name": "constant.numeric.array-dimension.l25",
+                            "match": "\\b[0-9]+\\b"
+                        },
+                        {
+                            "match": ",",
+                            "name": "punctuation.separator.l25"
+                        }
+                    ]
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "match": "\\+|\\-|\\*|\\/|%|==|!=|<=|>=|<|>|=|&",
+                    "name": "keyword.operator.l25"
+                }
+            ]
+        },
+        "punctuation": {
+            "patterns": [
+                {
+                    "match": "[{}():;,]",
+                    "name": "punctuation.separator.l25"
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "match": "\\b[0-9]+\\b",
+                    "name": "constant.numeric.l25"
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.l25",
+                    "match": "(?<=func\\s)\\b[a-zA-Z][a-zA-Z0-9]*\\b"
+                },
+                {
+                    "name": "support.function.builtin.l25",
+                    "match": "\\b(input|output)\\b"
+                },
+                {
+                    "name": "entity.name.function.call.l25",
+                    "match": "\\b[a-zA-Z][a-zA-Z0-9]*\\b(?=\\s*\\()"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.other.declaration.l25",
+                    "match": "(?<=let\\s)\\b[a-zA-Z][a-zA-Z0-9]*\\b"
+                },
+                {
+                    "name": "variable.parameter.l25",
+                    "match": "(?<=\\bfunc\\s[a-zA-Z_][a-zA-Z0-9_]*\\s*\\()\\b[a-zA-Z][a-zA-Z0-9]*\\b(?=[\\s,:)]|$)"
+                }
+            ]
+        },
+        "arrayAccess": {
+            "patterns": [
+                {
+                    "name": "variable.other.property.l25",
+                    "match": "\\b[a-zA-Z][a-zA-Z0-9]*\\b(?=\\s*\\[)"
+                },
+                {
+                    "name": "meta.array.access.subscript.l25",
+                    "begin": "(?<=\\b[a-zA-Z][a-zA-Z0-9]*\\s*)\\[",
+                    "end": "\\]",
+                    "beginCaptures": {
+                        "0": {"name": "punctuation.bracket.square.l25"}
+                    },
+                    "endCaptures": {
+                        "0": {"name": "punctuation.bracket.square.l25"}
+                    },
+                    "patterns": [
+                        {
+                            "include": "#expressions"
+                        },
+                        {
+                            "match": ",",
+                            "name": "punctuation.separator.l25"
+                        }
+                    ]
+                }
+            ]
+        },
+        "expressions": {
+            "patterns": [
+                { "include": "#numbers" },
+                { "include": "#functions" },
+                { "include": "#variables" },
+                { "include": "#arrayAccess" },
+                { "include": "#operators" },
+                { "include": "#punctuation" },
+                { "include": "#identifiers" }
+            ]
+        },
+        "identifiers": {
+            "patterns": [
+                {
+                    "match": "\\b[a-zA-Z][a-zA-Z0-9]*\\b",
+                    "name": "variable.other.l25"
+                }
+            ]
+        }
+    }
+}

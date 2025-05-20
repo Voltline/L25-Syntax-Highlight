@@ -1,0 +1,39 @@
+{
+  "name": "l25-syntax-highlight",
+  "displayName": "L25-Syntax-Highlight",
+  "description": "A syntax highlight extension for L25 Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "l25",
+      "aliases": ["L25", "l25"],
+      "extensions": [".l25"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "l25",
+      "scopeName": "source.l25",
+      "path": "./syntaxes/l25.tmLanguage.json"
+    }]
+  },
+  "icon": "images/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Voltline/L25-Syntax-Highlight"
+  },
+  "bugs": {
+    "url": "https://github.com/Voltline/L25-Syntax-Highlight/issues"
+  },
+  "keywords": [
+    "L25",
+    "syntax",
+    "highlight",
+    "language"
+  ]
+}
